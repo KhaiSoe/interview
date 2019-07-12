@@ -1,14 +1,23 @@
 package com.pursuit;
 
+import java.util.*;
+
 public class Services {
 
     String userId = "USER";
 
-    public void startJourney(){
+    ArrayList<String> stravaList = new ArrayList<>(Arrays.asList("STR", "CVT", "Perkiomen"));
+    ArrayList<String> rwgpsList = new ArrayList<>(Arrays.asList("CVT", "Perkiomen", "Welsh Mountain"));
+    ArrayList<String> komootList = new ArrayList<>(Arrays.asList("STR", "Welsh Mountain", "Oaks to Philly"));
+
+
+    public void startJourney() {
         instructions();
         stravaRoutes();
         rwgpsRoutes();
         komootRoutes();
+        allList();
+        uniqueRoutes();
     }
 
     private void instructions() {
@@ -17,41 +26,50 @@ public class Services {
     }
 
 
-    private void stravaRoutes(){
-        LinkedListNode stravaHead = new LinkedListNode("SRT");
-
-        LinkedList stravaList = new LinkedList(stravaHead);
-        stravaList.append("CVT");
-        stravaList.append("Perkiomen");
-        stravaList.prepend(userId);
-
-        stravaList.print();
+    private void stravaRoutes() {
+        stravaList.add(0, userId);
+        System.out.println(stravaList);
     }
 
     private void rwgpsRoutes(){
-        LinkedListNode rwgpsHead = new LinkedListNode("CVT");
-
-        LinkedList rwgpsList = new LinkedList(rwgpsHead);
-        rwgpsList.append("Perikomen");
-        rwgpsList.append("Welsh Mountain");
-        rwgpsList.append(userId);
-
-        rwgpsList.print();
+        rwgpsList.add(userId);
+        System.out.println(rwgpsList);
     }
 
     private void komootRoutes(){
-        LinkedListNode komootHead = new LinkedListNode("SRT");
+        komootList.add(userId);
+        komootList.add(0, userId);
+        System.out.println(komootList);
+    }
 
-        LinkedList komootList = new LinkedList(komootHead);
-        komootList.append("Welsh Mountain");
-        komootList.append("Oaks to Philly");
-        komootList.append(userId);
-        komootList.prepend(userId);
+    public List allList(){
+        ArrayList<String> allList = new ArrayList<>();
+        allList.addAll(stravaList);
+        allList.addAll(rwgpsList);
+        allList.addAll(komootList);
+        System.out.println(allList);
+        return allList;
+    }
 
-        komootList.print();
+    public Set uniqueRoutes(){
+        HashSet<String> uniqueList = new HashSet<>();
+        for(int i = 0; i < stravaList.size(); i++){
+            uniqueList.addAll(stravaList);
+        }
+
+        for(int i = 0; i < rwgpsList.size(); i++){
+            uniqueList.addAll(rwgpsList);
+        }
+
+        for(int i = 0; i < komootList.size(); i++){
+            uniqueList.addAll(komootList);
+        }
+
+        System.out.println(uniqueList);
+        return uniqueList;
     }
 
 
-
 }
+
 
