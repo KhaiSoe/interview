@@ -4,27 +4,26 @@ import java.util.Scanner;
 
 public class UserInformation {
 
-    Scanner scanner = new Scanner(System.in);
-    String userId;
+    String userId = "USER";
     int userChoiceRoutes;
 
     public void startJourney(){
         instructions();
-        IdInput();
+        //IdInput();
     }
-
 
     private void instructions() {
         System.out.println("\nInstructions:" +
-                "\nPlease enter your userId to see your routes.");
+                "\nHello, " + userId + " please see your routes.");
 
     }
 
-    private void IdInput() {
-        userId = scanner.nextLine();
-        System.out.println("\nHello " + userId);
-    }
-
+//    public void IdInput() {
+//        Scanner scanner = new Scanner(System.in);
+//        String userId = scanner.nextLine();
+//        System.out.println("\nHello " + userId);
+//    }
 
 
 }
+
