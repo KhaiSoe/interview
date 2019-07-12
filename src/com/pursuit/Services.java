@@ -19,6 +19,9 @@ public class Services implements UserInformation {
         komootRoutes();
         allRoutes();
         uniqueRoutes();
+        userInput();
+        allUserRoutes(userInput);
+        userRoutesByService(userInput, stravaList, komootList);
     }
 
     private void instructions() {
@@ -99,5 +102,6 @@ public class Services implements UserInformation {
     }
 
 }
+
 
 

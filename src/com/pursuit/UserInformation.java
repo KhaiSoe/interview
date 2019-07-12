@@ -7,3 +7,4 @@ public interface UserInformation {
     List allUserRoutes(String userInput);
     List userRoutesByService(String userInput, List<String> firstRoute, List<String> secondRoute);
 }
+
